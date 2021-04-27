@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MY STUDY</title>
+<link rel="stylesheet" href="outer.css">  
+<style>
+	input {	background-color: RED; }
+	.흙수저 {	background-color: BLUE; }
+	#neo { background-color : GREEN; }
+	
+	a:link { color:MAGENTA; }
+	a:visited {color:RED; }
+	a:hover {color:GREY; }
+	
+</style>
+</head>
+<body>
+	<form action="result.html" method="get">
+		<input type="text" value="값 넣으세요" name="myIn" required="required">
+		<input type="submit" >
+		<input id="흙수저" type="hidden"	name="alpha" value="beta"> 
+		<input id="neo" type="button" value="눌러보세요" onclick="alert('hi')"> 
+		<input id="neo"	type="button" value="push" onclick="alert('안녕하세요')">
+	</form>
+	<a href = "result.html">결과로 가자</a>
+	<p id="a1">alpha beta</p>
+	<p id="a2">alpha beta delta</p>
+	<p id="a3">alpha beta delta gamma</p>
+</body>
+</html>
