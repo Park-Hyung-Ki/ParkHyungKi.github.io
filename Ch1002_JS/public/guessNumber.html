@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function guess(){
+		var result="";
+		
+		//사용자가 입력한 값을 변수 number에 받아서 대입
+		var number = parseInt(document.getElementById("user").value);
+		nGuesses++;
+		
+		if(number == computerNumber)result = "성공입니다";
+		else if(number < computerNumber)result = "낮습니다.";
+		else result = "높습니다.";
+		//성능 적인 측면에서 굳이 if 문을 먼저 처음부터 비교할 필요가 없다.
+		//처음부터 else if문부터 시작을 하면 줄일수가 있기에
+		
+		document.getElementById("result").value = result;
+		document.getElementById("guesses").value = nGuesses;
+		return true;
+	}
+</script>
+</head>
+<body>
+ <h2>숫자 맞추기 게임</h2>
+ 이 게임은 컴퓨터가 생성한 숫자를 맞추는 게임입니다. 숫자는 1부터 100사이에 있습니다.
+ <input type="text" id="user" size="5">
+ <input type="button" value="확인" onclick="guess();">
+ 
+ 추측횟수:
+ <input type="text" id="guesses" size="5">
+ 힌트:
+ <input type="text" id="result" size="16">
+ 
+
+</body>
+</html>

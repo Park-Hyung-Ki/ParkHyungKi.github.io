@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+ <script>
+ 	var yourCar = {
+ 			model: "520d",
+ 			speed: 60,
+ 			color: "red",
+ 			brake: function() {this.speed -= 10; },
+ 			accel: function() {this.speed += 10; }
+ 	};
+ 	
+ 	yourCar.color = "yellow";
+ 	yourCar.brake();
+ </script>
+
+</body>
+</html>
