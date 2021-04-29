@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var ROOT = 5;
+	var chars = new Array();
+	var right = -1;
+	var bottom = 0;
+	var top = 1;
+	var k = 1;
+
+	function maketable() {
+		document.write("<table>");
+		for (i = ROOT; i > 0; i--) {
+
+			for (j = 0; j < ROOT; j++) {
+				right += top;
+				chars[bottom][right] = k;
+				k++;
+			}
+			ROOT--;
+
+			for (j = 0; j < ROOT; j++) {
+				bottom += top;
+				chars[bottom][right] = k;
+				k++;
+			}
+			top = top * (-1);
+		}
+
+		for (i = 0; i < chars.length; i++) {
+			for (j = 0; j < chars[i].length; j++) {
+				document.write("2%", chars[i][j]);
+			}
+		}
+		document.write("</table>");
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>

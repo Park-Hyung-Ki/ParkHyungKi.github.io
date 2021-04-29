@@ -17,40 +17,63 @@
 		}
 	}
 	makeTable();
-	
+
 	function displayTable() {
 		document.write("<table>");
+		tp = ROOT - 1;
 		for (i = 0; i < ROOT; i++) {
 			document.write("<tr>");
-			row = chars[i][j];
-			for (j = 0; j < ROOT; j++) {
+			for(j = 0; j < ROOT; j++){
 				document.write("<td>");
-				document.write(row[j]);
+				document.write(chars[i][j]);
 				document.write("</td>");
 			}
 			document.write("</tr>");
 		}
 		document.write("</table>");
 	}
-	
-	function rotate() {
-		var turnPoint = ROOT - 1;
-		for (i=0; i< ROOT * 2 - 1; i++){
-			if ( i <ROOT) {
-				chars[i][0];
-			} else{
-				
-			}
-	
-		}
 
+	function rotate() {
+		
+		document.write("<table>");
+		const tp = ROOT - 1;
+		tail = 0;
+		delta = 1;
+		for (i = 0; i < ROOT * 2 - 1; i++) {
+			document.write("<tr>");
+			document.write("<td>");
+
+			let row, col;
+			if (i < ROOT) {
+				row = i;
+				col = 0;
+			} else {
+				row = tp;
+				col = i - (tp);
+			}
+			document.write(chars[row][col]);
+			document.write("</td>");
+
+			for (j = 0; j < tail; j++) {
+				row--;
+				col++;
+				document.write("<td>");
+				document.write(chars[row][col]);
+				document.write("</td>");
+			}
+			document.write("</tr>");
+		if (i == tp) {
+			delta = -1;
+		}
+		tail += delta;
 	}
-	
+	document.write("</table>");
+}
 </script>
 </head>
 <body>
 	<script>
-	displayTable();
+		displayTable();
 	</script>
 	<input type="button" value="비틀어주세요" onclick="rotate()" />
 
