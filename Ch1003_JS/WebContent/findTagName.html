@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Find Tag Name</title>
+</head>
+<body>
+<ul>
+	<li> List item 1</li>
+	<li> List item 2</li>
+	<li> List item 3</li>
+	<li> List item 4</li>
+	<li> List item 5</li>
+</ul>
+<script>
+var list = document.getElementsByTagName('ul')[0];
+var allItems = list.getElementsByTagName('li');
+//getElementByTagName으로 했더니 그냥 list만 나열되더라
+
+for(var i = 0, length = allItems.length; i < length; i++){
+	// i< length; 메모리를 더쓰긴함, 대신 속도가 빠르다. 이정도로는 크게 의미가 없는데
+	// 엄청나게 많은 반복문 같은 경우에서는 미미한 성능도 업그레이드 하는것을 필요로 한다.
+	alert(allItems[i].firstChild.data);
+}
+</script>	
+</body>
+</html>
