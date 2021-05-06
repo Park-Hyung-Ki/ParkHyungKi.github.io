@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript"
+	src=C:\Users\prett\eclipse-workspace/jquery-3.6.0.js>
+	
+</script>
+<title>웹워커 예제 : 소수 찾기</title>
+</head>
+<body>
+	<button id="btnStart">시작</button>
+	<button id="btnStop">종료</button>
+	<p>
+		현재까지 발견된 소수는
+		<output id="result"> </output>
+	</p>
+</body>
+<script type="text/javascript">
+	$(document).ready(
+		function() {
+			var worker;
+
+		//JAVA Thread run() 함수에 해당합니다.
+function worker_function() {
+	var primes = [];
+	var provingTargetNumber = 1; // 조사 대상 수
+		NEXT_NUM: while (true) {
+			provingTargetNumber += 1;
+				for (var i = 0; primes.length && primes[i] <= Math.sqrt(provingTargetNumber); i++) {
+					if (provingTargetNumber % primes[i] == 0) {
+						continue NEXT_NUM;
+						}
+					}
+								//소수를 발견하면 화면 처리로 전달한다.
+						primes.push(provingTargetNumber);
+						postMessage(provingTargetNumber);
+				}
+			}
+				$("#btnStart").click(function() {
+				if (typeof (Worker) !== "undefined") {
+					//시작 버튼을 여러번 눌러도 한 개로만 실행
+					if (typeof (worker) == "undefined") {
+						worker = new Worker(URL.createObjectURL(new Blob([ "("+ worker_function.toString()+ ")()" ],{type : 'text/javascript'})));
+					}
+					//postMessage 함수에서 CallBack 되는 것
+					worker.onmessage = function(event) {
+					$("#result").text(event.data);
+						};
+							} else {
+								$("#result").text("지원불가");
+							}
+						});
+
+	$("#btnStop").click(function() {
+		worker.terminate();
+		});
+	});
+</script>
+
+</html>
