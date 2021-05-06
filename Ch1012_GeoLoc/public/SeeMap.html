@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<button onclick="getGeolocation()">지도 보이기</button>
+<script>
+	var myDiv = document.getElementById("target");
+	function getGeolocation(){
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(showGeolocation);
+		}
+	}
+	
+	function showGeolocation(position){
+		var pos = position.coords.latitude + "," + position.coords.longitude;
+		var url = "https://openapi.map.naver.com/openapi/v3/maps.js?clientId=YOUR_CLIENT_ID&callback=initMap"
+				+ pos + "&zoom=14&size=500x300&sensor=false";
+		window.open(url);
+	}
+</script>	
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html> <!--  0506 -->
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript"
+	src=C:\Users\prett\eclipse-workspace/jquery-3.6.0.js>
+	
+</script>
+<title>moveGetLocation</title>
+</head>
+<body>
+	<button id="btnStart">위치 정보 시작</button>
+	<button id="btnStop">위치 정보 중지</button>
+	<div id="target"></div>
+</body>
+</html>
+<script type="text/javascript">
+	$(document).ready(
+			function() {
+				var id;
+				$("#btnStart").click(
+						function() {
+							if (navigator.geolocation) {
+								id = navigator.geolocation
+										.watchPosition(showGeolocation);
+							}
+						});
+
+				function showGeolocation(location) {
+					$("#target").text(
+							"(위도: " + location.coords.latitude + ", 경도: "
+									+ location.coords.longitude + ")");
+				}
+
+				$("#btnStop").click(function() {
+					if (navigator.geolocation) {
+						navigator.geolocation.clearWatch(id);
+					}
+					$("#target").text("끝");
+				});
+			});
+</script>
