@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add Dom</title>
+<script type ="text/javascript" src=C:\Users\prett\eclipse-workspace/jquery-3.6.0.js> </script>
+
+<script type = "text/javascript">
+$(document).ready(function(){
+	$("#button1").click(function() {
+		$("p").append("<b style='color:red'> Hello! </b>.");
+	});
+	$("#button2").click(function(){
+		$("p").prepend("<b style='color:red'> Hello! </b>.");
+	});
+});
+</script>
+</head>
+<body>
+	<p>I would like to say:</p>
+	<button id="button1">append()</button>
+	<button id="button2">prepend()</button>
+</body>
+</html>

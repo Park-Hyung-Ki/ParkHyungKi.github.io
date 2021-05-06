@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS</title>
+<script type ="text/javascript" src=C:\Users\prett\eclipse-workspace/jquery-3.6.0.js> </script>
+
+<script type = "text/javascript">
+$(document).ready(function(){
+	$("input").focus(function(){
+		$(this).css("background-color", "yellow");
+	});
+	$("blur").focus(function(){
+		$(this).css("background-color", "white");
+	});
+});
+</script>
+</head>
+<body>
+	아이디:<input type="text" value="값 넣기">
+</body>
+</html>

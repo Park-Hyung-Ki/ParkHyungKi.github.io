@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MEODWE</title>
+<script type ="text/javascript" src=C:\Users\prett\eclipse-workspace/jquery-3.6.0.js> </script>
+
+<script type = "text/javascript">
+$(document).on({
+	mousemove:function(e){
+		$("#log").text("X : " + e.pageX + ", Y : " + e.pageY);
+	},
+	click:function(e){
+		$("#log").text("안녕");
+	}
+});
+</script>
+</head>
+<body>
+	<div id="Log"></div>
+</body>
+</html>
